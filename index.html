@@ -1,193 +1,346 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>خدمات خطك</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-body {
-  margin:0;
-  font-family: Tajawal ,sans-serif;
-  background:url( bg.jpg ) no-repeat center center fixed;
-  background-size:cover;
-  color:#fff;
-  text-align:center;
-  user-select:none;
-}
-header { padding:20px; }
-header img { width:90px;border-radius:50%; }
-header h1 { margin:10px 0 0; font-size:28px; font-weight:900; }
-
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:15px;
-  padding:20px;
-}
-.card {
-  padding:20px;
-  border-radius:15px;
-  font-size:20px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:transform .2s;
-}
-.card:hover { transform:scale(1.05); }
-.vodafone { background:#e60000; }
-.etisalat { background:#007e3a; }
-.orange { background:#ff7900; }
-.we { background:#6f1ab6; }
-.gift { background:#444; }
-
-footer { background:#111; padding:15px; font-size:14px; }
-footer a { color:#00c3ff; text-decoration:none; }
-
-/* مودال */
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شبكات المحمول</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family:  Tajawal , sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px 25px;
+      border-radius: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+    }
+    .vodafone { background-color: #e60000cc; }
+    .etisalat { background-color: #007e3acc; }
+    .orange { background-color: #ff7900cc; }
+    .we { background-color: #5b2d90cc; }
+    .gift-etisalat { background-color: #00b894cc; }
+    .gift-vodafone { background-color: #d63031cc; }
 .modal {
-  display:none; position:fixed; z-index:1000; left:0; top:0;
-  width:100%; height:100%; background:rgba(0,0,0,0.85);
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
+
 .modal-content {
-  background:#222;
-  margin:5% auto; padding:20px;
-  border-radius:15px; width:90%; max-width:500px;
-  max-height:85vh; overflow-y:auto;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+  max-height: 80vh;
+  overflow-y: auto;
 }
-.close { float:left; font-size:28px; cursor:pointer; color:#fff; }
-.codes { display:flex; flex-direction:column; gap:10px; margin-top:20px; }
-.code-box { background:#333; padding:10px; border-radius:10px; }
-.code-box a { color:#00ffea; text-decoration:none; font-weight:bold; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.close {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  font-size: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+}
+
+.codes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.code-box {
+  background-color: #f9f9f9;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #222;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.code-box a {
+  text-decoration: none;
+  color: #222;
+  display: block;
+}
+
+.code-box:hover {
+  background-color: #e0e0e0;
+}
+
+  
+.site-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.site-header h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  font-weight: 900;
+  margin: 0;
+}
+
+.site-header h1 {
+  font-family:  El Messiri , sans-serif;
+  font-size: 3.5rem;
+  background: linear-gradient(45deg, #ffd700, #00bcd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  font-weight: 900;
+  margin: 0;
+}
+
+
+.site-footer {
+  text-align: center;
+  padding: 8px 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  font-size: 0.8rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-family:  Tajawal , sans-serif;
+}
+
+.site-footer a {
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+
+.site-logo {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff33;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
 </style>
+
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@700;900&display=swap" rel="stylesheet">
+
 </head>
 <body>
+  
 
-<header>
-  <img src="rrp.png" alt="Logo">
-  <h1>خدمات خطك</h1>
+<header class="site-header">
+  <img src="logo.png" alt="Logo" class="site-logo">
+  <h1>Dr‑Internet Rony</h1>
 </header>
 
+
 <div class="grid">
-  <div class="card vodafone" onclick="openModal( vodafoneModal )">📱 فودافون</div>
-  <div class="card etisalat" onclick="openModal( etisalatModal )">📱 اتصالات</div>
-  <div class="card orange" onclick="openModal( orangeModal )">📱 أورنج</div>
-  <div class="card we" onclick="openModal( weModal )">📱 وي</div>
-  <div class="card gift" onclick="openModal( vodafoneGiftModal )">🎁 هدايا فودافون</div>
-  <div class="card gift" onclick="openModal( etisalatGiftModal )">🎁 هدايا اتصالات</div>
+    <div class="card vodafone" onclick="openModal( vodafoneModal )">خدمات شبكة فودافون</div>
+    <div class="card etisalat" onclick="openModal( etisalatModal )">خدمات شبكة اتصالات</div>
+    <div class="card orange" onclick="openModal( orangeModal )">خدمات شبكة أورنج</div>
+    <div class="card we" onclick="openModal( weModal )">خدمات شبكة وي</div>
+  
+    <div class="card gift-etisalat" onclick="openModal( etisalatGiftModal )">ميجات هدية لشبكة اتصالات</div>
+    <div class="card gift-vodafone" onclick="openModal( vodafoneGiftModal )">ميجات هدية حظ لشبكة فودافون</div>
+</div>  <!-- نافذة فودافون -->
+  <!-- نافذة ميجات هدية اتصالات -->
+  <div id="etisalatGiftModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal( etisalatGiftModal )">&times;</span>
+      <h2 style="color: #00b894;">ميجات هدية لشبكة اتصالات</h2>
+      <div class="codes">
+        <div class="code-box"><a href="tel:*890%23">5 = 2 جيجا بالحظ (متجددة كل شهر)</a></div>
+        <div class="code-box"><a href="tel:*1001%23">500 ميجا حظ</a></div>
+        <div class="code-box"><a href="tel:*4144*2*2%23">100 ميجا حظ</a></div>
+      
+<div class="code-box"><a href="tel:*155*5%23">2-1 جيجا ببلاش لبعض خطوط اتصالات</a></div>
 </div>
-
-<!-- مودالات فودافون -->
-<div id="vodafoneModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal( vodafoneModal )">&times;</span>
-    <h2>خدمات فودافون</h2>
-    <div class="codes">
-      <div class="code-box"><a href="tel:*868#">معرفة الرصيد</a></div>
-      <div class="code-box"><a href="tel:*858*الرقم#">شحن كارت</a></div>
-      <div class="code-box"><a href="tel:*868*2*الرقم*المبلغ#">تحويل رصيد</a></div>
-      <div class="code-box"><a href="tel:*878#">معرفة الرقم</a></div>
-      <div class="code-box"><a href="tel:888">خدمة العملاء</a></div>
-      <!-- باقات ومكالمات -->
-      <div class="code-box"><a href="tel:*868*1#">تفعيل باقة يومية</a></div>
-      <div class="code-box"><a href="tel:*868*2#">تفعيل باقة أسبوعية</a></div>
-      <div class="code-box"><a href="tel:*868*3#">تفعيل باقة شهرية</a></div>
     </div>
   </div>
-</div>
-
-<div id="vodafoneGiftModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal( vodafoneGiftModal )">&times;</span>
-    <h2>هدايا فودافون</h2>
-    <div class="codes">
-      <div class="code-box"><a href="tel:*365#">فليكسات ببلاش يوميًا</a></div>
-      <div class="code-box"><a href="tel:*777#">هدايا الجمعة</a></div>
+  <div id="vodafoneModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal( vodafoneModal )">&times;</span>
+      <h2 style="color: #e60000;">أكواد فودافون</h2>
+      <div class="codes">
+        <div class="code-box"><a href="tel:*010*010%23">إلغاء الخدمات لمنع سحب الرصيد</a></div>
+        <div class="code-box"><a href="tel:*155%23">إلغاء الخدمات الوهمية</a></div>
+        <div class="code-box"><a href="tel:*055*000000%23">كود إلغاء الكول تون</a></div>
+        <div class="code-box"><a href="tel:*3*5%23">كود معرفة الرصيد المستلف</a></div>
+        <div class="code-box"><a href="tel:*21*777%23">تفعيل خاصية الهاتف مغلق</a></div>
+        <div class="code-box"><a href="tel:%2321%23">إلغاء خاصية الهاتف مغلق</a></div>
+        <div class="code-box"><a href="tel:*60%23">معرفة الباقات والاستهلاك</a></div>
+        <div class="code-box"><a href="tel:*888%23">التواصل مع خدمة العملاء</a></div>
+        <div class="code-box"><a href="tel:*505*010xxxxxxxx%23">إرسال كلمني شكراً (استبدل x برقم الهاتف)</a></div>
+        <div class="code-box"><a href="tel:*858*xxxxxxxx%23">شحن الكارت مكالمات وإنترنت</a></div>
+        <div class="code-box"><a href="tel:*858*1*xxxxxxxx%23">شحن الكارت دقايق فقط</a></div>
+      </div>
+    </div>
+  </div>  <!-- نافذة أورنج -->
+  <!-- نافذة اتصالات -->
+  <div id="etisalatModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal( etisalatModal )">&times;</span>
+      <h2 style="color: #007e3a;">أكواد اتصالات</h2>
+      <div class="codes">
+        <div class="code-box"><a href="tel:*15*5%23">إلغاء الكول تون</a></div>
+        <div class="code-box"><a href="tel:*166%23">إلغاء جميع الخدمات الوهمية</a></div>
+        <div class="code-box"><a href="tel:*947%23">معرفة رقم الخط</a></div>
+        <div class="code-box"><a href="tel:*556%23">شحن الكارت</a></div>
+        <div class="code-box"><a href="tel:*240%23">معرفة المستحقات المستلفة</a></div>
+        <div class="code-box"><a href="tel:*21*787%23">تفعيل خاصية الهاتف مغلق</a></div>
+        <div class="code-box"><a href="tel:%23002%23">إلغاء خاصية الهاتف مغلق</a></div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- مودالات اتصالات -->
-<div id="etisalatModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal( etisalatModal )">&times;</span>
-    <h2>خدمات اتصالات</h2>
-    <div class="codes">
-      <div class="code-box"><a href="tel:*555#">معرفة الرصيد</a></div>
-      <div class="code-box"><a href="tel:*556*الرقم#">شحن كارت</a></div>
-      <div class="code-box"><a href="tel:*557*الرقم*المبلغ#">تحويل رصيد</a></div>
-      <div class="code-box"><a href="tel:*947#">معرفة الرقم</a></div>
-      <div class="code-box"><a href="tel:333">خدمة العملاء</a></div>
-      <!-- باقات ومكالمات -->
-      <div class="code-box"><a href="tel:*15*1#">باقة يومية</a></div>
-      <div class="code-box"><a href="tel:*15*2#">باقة أسبوعية</a></div>
-      <div class="code-box"><a href="tel:*15*3#">باقة شهرية</a></div>
+  <!-- نافذة وي -->
+  <div id="weModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal( weModal )">&times;</span>
+      <h2 style="color: #5b2d90;">أكواد وي</h2>
+      <div class="codes">
+        <div class="code-box"><a href="tel:*155%23">إلغاء جميع الخدمات الوهمية</a></div>
+        <div class="code-box"><a href="tel:*777%23">إلغاء الكول تون</a></div>
+        <div class="code-box">إلغاء الخدمات الإخبارية: أرسل "إلغاء" إلى 9999</div>
+        <div class="code-box"><a href="tel:*515*====%23">إرسال كلمني شكراً للطرف الآخر</a></div>
+        <div class="code-box"><a href="tel:*322%23">الاستعلام عن رصيدك</a></div>
+        <div class="code-box"><a href="tel:*323*====*k%23">تحويل رصيد لطرف آخر</a></div>
+        <div class="code-box"><a href="tel:*414%23">الاستعلام عن باقتك</a></div>
+        <div class="code-box"><a href="tel:*555*====%23">شحن كارت</a></div>
+        <div class="code-box"><a href="tel:*688%23">معرفة رقم الخط</a></div>
+        <div class="code-box"><a href="tel:*21*0200%23">تفعيل خاصية الهاتف غير متاح</a></div>
+        <div class="code-box"><a href="tel:%23002%23">إلغاء خاصية الهاتف مغلق</a></div>
+      </div>
     </div>
   </div>
-</div>
-
-<div id="etisalatGiftModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal( etisalatGiftModal )">&times;</span>
-    <h2>هدايا اتصالات</h2>
-    <div class="codes">
-      <div class="code-box"><a href="tel:*566#">عرض اليوم</a></div>
-      <div class="code-box"><a href="tel:*15#">كويك سيرفيس</a></div>
+  <div id="orangeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal( orangeModal )">&times;</span>
+      <h2 style="color: #ff7900;">أكواد أورنج</h2>
+      <div class="codes">
+        <div class="code-box"><a href="tel:%2316%23">معرفة رصيدك والمبلغ المستحق</a></div>
+        <div class="code-box"><a href="tel:%23100%23">معرفة رصيدك والخدمات المشتركة في خطك</a></div>
+        <div class="code-box"><a href="tel:%23136%23">معرفة المتبقي من باقتك</a></div>
+        <div class="code-box"><a href="tel:%2312%23">معرفة الخدمات والعروض اليومية</a></div>
+        <div class="code-box"><a href="tel:%23505%23">خاصية الهاتف مغلق</a></div>
+        <div class="code-box"><a href="tel:*62**======%23">تفعيل الهاتف مغلق لرقم محدد (استبدل = بالرقم)</a></div>
+        <div class="code-box"><a href="tel:*505*2*===%23">إلغاء الهاتف مغلق لرقم محدد (استبدل = بالرقم)</a></div>
+        <div class="code-box"><a href="tel:%23002%23%23">إلغاء جميع خدمات أورنج الوهمية</a></div>
+        <div class="code-box"><a href="tel:*119%23">معرفة رقم الخط</a></div>
+        <div class="code-box"><a href="tel:*102*1*!!!!!%23">شحن الكارت وحدات (استبدل ! برقم الكارت)</a></div>
+        <div class="code-box"><a href="tel:*102*2*!!!!!%23">شحن الكارت ميجات فقط (استبدل ! برقم الكارت)</a></div>
+        <div class="code-box"><a href="sms:9999?body=UNSUB">إلغاء الكول تون (أرسل UNSUB للكود)</a></div>
+      </div>
+    </div>
+  </div>  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display =  flex ;
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display =  none ;
+    }
+  </script>
+  <!-- نافذة ميجات هدية حظ لفودافون -->
+  <div id="vodafoneGiftModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal( vodafoneGiftModal )">&times;</span>
+      <h2 style="color: #d63031;">ميجات هدية حظ لفودافون</h2>
+      <div class="codes">
+        <div class="code-box"><a href="tel:*221%23">حظ 100 ميجا يومياً لمدة شهر</a></div>
+        <div class="code-box"><a href="tel:*4%23">2 جيجا حظ لمدة يومين</a></div>
+        <div class="code-box"><a href="tel:*365*99%23">200 ميجا حظ لفودافون كاش</a></div>
+        <div class="code-box"><a href="tel:*365*90%23">5 جيجا حظ لمحفظة فودافون كاش</a></div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- مودالات أورنج -->
-<div id="orangeModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal( orangeModal )">&times;</span>
-    <h2>خدمات أورنج</h2>
-    <div class="codes">
-      <div class="code-box"><a href="tel:*100#">معرفة الرصيد</a></div>
-      <div class="code-box"><a href="tel:*102*الرقم#">شحن كارت</a></div>
-      <div class="code-box"><a href="tel:*100*2*الرقم*المبلغ#">تحويل رصيد</a></div>
-      <div class="code-box"><a href="tel:*119#">معرفة الرقم</a></div>
-      <div class="code-box"><a href="tel:110">خدمة العملاء</a></div>
-      <!-- باقات ومكالمات -->
-      <div class="code-box"><a href="tel:*102*1#">باقة يومية</a></div>
-      <div class="code-box"><a href="tel:*102*2#">باقة أسبوعية</a></div>
-      <div class="code-box"><a href="tel:*102*3#">باقة شهرية</a></div>
-    </div>
-  </div>
-</div>
 
-<!-- مودالات وي -->
-<div id="weModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal( weModal )">&times;</span>
-    <h2>خدمات WE</h2>
-    <div class="codes">
-      <div class="code-box"><a href="tel:*550#">معرفة الرصيد</a></div>
-      <div class="code-box"><a href="tel:*555*الرقم#">شحن كارت</a></div>
-      <div class="code-box"><a href="tel:*323*الرقم*المبلغ#">تحويل رصيد</a></div>
-      <div class="code-box"><a href="tel:*688#">معرفة الرقم</a></div>
-      <div class="code-box"><a href="tel:111">خدمة العملاء</a></div>
-      <!-- باقات ومكالمات -->
-      <div class="code-box"><a href="tel:*555*1#">باقة يومية</a></div>
-      <div class="code-box"><a href="tel:*555*2#">باقة أسبوعية</a></div>
-      <div class="code-box"><a href="tel:*555*3#">باقة شهرية</a></div>
-    </div>
-  </div>
-</div>
-
-<footer>
-  جميع الحقوق محفوظة © 2025 | <a href="#">قناة خدمات خطك</a>
+<footer class="site-footer">
+  جميع الحقوق محفوظة لقناه © ثغرات الانترنت
+  <a href="
+  https://whatsapp.com/channel/0029Vb66boW4CrfnqaLzRv2A" target="_blank">أضغط هنا للانضمام الينا</a>
 </footer>
 
+
 <script>
-function openModal(id){document.getElementById(id).style.display= block ;}
-function closeModal(id){document.getElementById(id).style.display= none ;}
-window.onclick=function(e){
-  document.querySelectorAll( .modal ).forEach(modal=>{
-    if(e.target==modal){modal.style.display= none ;}
+  document.addEventListener( DOMContentLoaded , (event) => {
+    // منع تحديد النصوص
+    document.body.style.userSelect = "none";
+    document.body.style.webkitUserSelect = "none";
+    document.body.style.msUserSelect = "none";
+    document.body.style.mozUserSelect = "none";
+    
+    // منع كليك يمين
+    document.addEventListener( contextmenu , function(e) {
+      e.preventDefault();
+      alert("عذرًا، لا يمكنك نسخ المحتوى من هذا الموقع.");
+    });
+    
+    // منع اختصارات النسخ (Ctrl+C / Ctrl+X / Ctrl+V)
+    document.addEventListener( keydown , function(e) {
+      if ((e.ctrlKey && (e.key ===  c  || e.key ===  x  || e.key ===  v )) ||
+          (e.metaKey && (e.key ===  c  || e.key ===  x  || e.key ===  v ))) {
+        e.preventDefault();
+        alert("عذرًا، لا يمكنك نسخ أو لصق النصوص هنا.");
+      }
+    });
   });
-}
 </script>
 
 </body>
   </html>
-                                                                 
+                                
